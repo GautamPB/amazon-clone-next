@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import BottomNav from '../components/BottomNav'
 
 export default function Home() {
     return (
@@ -15,6 +16,7 @@ export default function Home() {
 
             <div>
                 <Navbar />
+                <BottomNav />
             </div>
         </div>
     )
