@@ -1,10 +1,12 @@
 import Head from 'next/head'
 import Navbar from '../components/Navbar'
+import Banner from '../components/Banner'
+import HomePage from '../components/HomePage'
 import BottomNav from '../components/BottomNav'
 
 export default function Home() {
     return (
-        <div className="bg-[#EAEDED]">
+        <div className="bg-[#EAEDED] min-h-screen">
             <Head>
                 <title>Amazon</title>
                 <meta
@@ -17,6 +19,8 @@ export default function Home() {
             <div>
                 <Navbar />
                 <BottomNav />
+                <Banner />
+                <HomePage />
             </div>
         </div>
     )

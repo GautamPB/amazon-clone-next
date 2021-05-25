@@ -14,7 +14,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex bg-[#131921] w-[100%] px-4 items-center flex-col lg:flex-row py-2 justify-between">
+        <div className="flex bg-[#131921] w-[100%] px-4 items-center flex-col lg:flex-row py-2 justify-between sticky top-0">
             <div className="lg:flex items-center w-[100%]">
                 <div className="flex">
                     <div className="cursor-pointer">
@@ -46,7 +46,7 @@ const Navbar = () => {
                         onChange={(e) => setSearch(e.target.value)}
                         type="text"
                         placeholder="Search Amazon"
-                        className="w-[100%]  py-2.5 px-2 rounded-lg outline-none border-none"
+                        className="w-[100%]  py-2.5 px-2 rounded-lg outline-none border-none bg-white"
                     />
                     <SearchIcon
                         className="h-12 bg-[#CD9402] p-2.5 rounded-lg cursor-pointer"
