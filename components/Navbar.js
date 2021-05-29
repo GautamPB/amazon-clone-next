@@ -3,6 +3,7 @@ import { ShoppingCartIcon } from '@heroicons/react/solid'
 import { SearchIcon } from '@heroicons/react/solid'
 import NavbarItem from './NavbarItem'
 import { useState } from 'react'
+import Link from 'next/link'
 
 const Navbar = () => {
     const [search, setSearch] = useState('')
@@ -57,10 +58,14 @@ const Navbar = () => {
 
             <div className="items-center space-x-4 hidden lg:flex">
                 <div className="flex space-x-4">
-                    <NavbarItem
-                        lineOne="Hello, Sign In"
-                        lineTwo="Accounts & Lists"
-                    />
+                    <Link href="/login">
+                        <a>
+                            <NavbarItem
+                                lineOne="Hello, Sign In"
+                                lineTwo="Accounts & Lists"
+                            />
+                        </a>
+                    </Link>
                     <NavbarItem lineOne="Returns" lineTwo="& Orders" />
                 </div>
 
