@@ -4,9 +4,16 @@ import { SearchIcon } from '@heroicons/react/solid'
 import NavbarItem from './NavbarItem'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { auth } from '../firebase'
+import { useRouter } from 'next/router'
 
 const Navbar = () => {
     const [search, setSearch] = useState('')
+
+    const [user] = useAuthState(auth)
+
+    const router = useRouter()
 
     const handleSubmitSearch = (e) => {
         e.preventDefault()
@@ -24,10 +31,20 @@ const Navbar = () => {
 
                     <div className="flex items-center space-x-4 lg:hidden ml-auto">
                         <div className="flex space-x-4">
-                            <NavbarItem
-                                lineOne="Hello, Sign In"
-                                lineTwo="Accounts & Lists"
-                            />
+                            <div
+                                onClick={() =>
+                                    user
+                                        ? auth.signOut()
+                                        : router.push('/login')
+                                }
+                            >
+                                <NavbarItem
+                                    lineOne={`Hello, ${
+                                        user ? user.email : 'Sign In'
+                                    }`}
+                                    lineTwo="Accounts & Lists"
+                                />
+                            </div>
                             <NavbarItem lineOne="Returns" lineTwo="& Orders" />
                         </div>
 
@@ -58,14 +75,17 @@ const Navbar = () => {
 
             <div className="items-center space-x-4 hidden lg:flex">
                 <div className="flex space-x-4">
-                    <Link href="/login">
-                        <a>
-                            <NavbarItem
-                                lineOne="Hello, Sign In"
-                                lineTwo="Accounts & Lists"
-                            />
-                        </a>
-                    </Link>
+                    <div
+                        onClick={() =>
+                            user ? auth.signOut() : router.push('/login')
+                        }
+                    >
+                        <NavbarItem
+                            lineOne={`Hello, ${user ? user.email : 'Sign In'}`}
+                            lineTwo="Accounts & Lists"
+                        />
+                    </div>
+
                     <NavbarItem lineOne="Returns" lineTwo="& Orders" />
                 </div>
 

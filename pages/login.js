@@ -2,16 +2,39 @@ import Head from 'next/head'
 import Image from 'next/image'
 import ArrowRightIcon from '@material-ui/icons/ArrowRight'
 import CopyrightIcon from '@material-ui/icons/Copyright'
+import { useState } from 'react'
+import { auth } from '../firebase'
+import { useRouter } from 'next/router'
 
 const login = () => {
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const router = useRouter()
+
     const handleLogin = (e) => {
         e.preventDefault()
-        console.log('Logged In')
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                router.push('/')
+            })
+            .catch((e) => alert(e.message))
+
+        setEmail('')
+        setPassword('')
     }
 
     const handleSignUp = (e) => {
         e.preventDefault()
-        console.log('Sign Up user')
+
+        auth.createUserWithEmailAndPassword(email, password)
+            .then(() => {
+                router.push('/')
+            })
+            .catch((e) => alert(e.message))
+
+        setEmail('')
+        setPassword('')
     }
 
     return (
@@ -34,6 +57,8 @@ const login = () => {
                         <div className="flex flex-col space-y-1 mt-5">
                             <label className="font-bold">Email</label>
                             <input
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
                                 type="email"
                                 className="bg-white border p-2 outline-none focus:ring-2 focus:ring-[#EC9200]"
                             />
@@ -42,6 +67,8 @@ const login = () => {
                         <div className="flex flex-col space-y-1 mt-5 rounded-lg">
                             <label className="font-bold">Password</label>
                             <input
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}
                                 type="password"
                                 className="bg-white border p-2 outline-none focus:ring-2 focus:ring-[#EC9200] rounded-lg"
                             />
