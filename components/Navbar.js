@@ -3,7 +3,6 @@ import { ShoppingCartIcon } from '@heroicons/react/solid'
 import { SearchIcon } from '@heroicons/react/solid'
 import NavbarItem from './NavbarItem'
 import { useState } from 'react'
-import Link from 'next/link'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import { useRouter } from 'next/router'
@@ -22,7 +21,7 @@ const Navbar = () => {
     }
 
     return (
-        <div className="flex bg-[#131921] w-[100%] px-4 items-center flex-col lg:flex-row py-2 justify-between sticky top-0">
+        <div className="flex bg-[#131921] w-[100%] px-4 items-center flex-col lg:flex-row py-2 justify-between sticky top-0 z-10">
             <div className="lg:flex items-center w-[100%]">
                 <div className="flex">
                     <div className="cursor-pointer">

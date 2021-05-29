@@ -1,11 +1,40 @@
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Carousel } from 'react-responsive-carousel'
+
 const Banner = () => {
     return (
-        <div className="z-0">
-            <img
-                className="mx-auto"
-                src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/Zeitgeist/Mar20/Covid19/2021/IN_GWD_Covid19_CustomerMsg_MH_ENG_1x_v1._CB669806110_.jpg"
-                alt=""
-            />
+        <div className="z-auto">
+            <Carousel
+                showArrows={false}
+                showStatus={false}
+                interval={5000}
+                showIndicators={false}
+                showThumbs={false}
+                infiniteLoop={true}
+                autoFocus={false}
+                autoPlay={true}
+                className="w-full lg:w-[80%] mx-auto"
+            >
+                <div>
+                    <img src="/banner_picture-2.jpg" alt="" />
+                </div>
+
+                <div>
+                    <img src="/banner_picture-3.jpg" alt="" />
+                </div>
+
+                <div>
+                    <img src="/banner_picture-4.jpg" alt="" />
+                </div>
+
+                <div>
+                    <img src="/banner_picture-5.jpg" alt="" />
+                </div>
+
+                <div>
+                    <img src="/banner_picture-6.jpg" alt="" />
+                </div>
+            </Carousel>
         </div>
     )
 }
