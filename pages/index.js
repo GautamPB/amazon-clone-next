@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar'
 import Banner from '../components/Banner'
 import HomePage from '../components/HomePage'
 import BottomNav from '../components/BottomNav'
+import requests from '../utils/requests'
 
 export default function Home({ results }) {
     return (
@@ -27,8 +28,13 @@ export default function Home({ results }) {
 }
 
 export async function getServerSideProps(context) {
+    const category = context.query.category
     let data = []
-    const request = await fetch('https://fakestoreapi.com/products')
+    const request = await fetch(
+        `https://fakestoreapi.com${
+            requests[category]?.url || requests.fetchAll.url
+        }`
+    )
         .then((res) => res.json())
         .then((res) => (data = res))
 
