@@ -4,7 +4,7 @@ import Banner from '../components/Banner'
 import HomePage from '../components/HomePage'
 import BottomNav from '../components/BottomNav'
 
-export default function Home() {
+export default function Home({ results }) {
     return (
         <div className="bg-[#EAEDED] min-h-screen">
             <Head>
@@ -20,8 +20,21 @@ export default function Home() {
                 <Navbar />
                 <BottomNav />
                 <Banner />
-                <HomePage />
+                <HomePage results={results} />
             </div>
         </div>
     )
+}
+
+export async function getServerSideProps(context) {
+    let data = []
+    const request = await fetch('https://fakestoreapi.com/products')
+        .then((res) => res.json())
+        .then((res) => (data = res))
+
+    return {
+        props: {
+            results: data,
+        },
+    }
 }

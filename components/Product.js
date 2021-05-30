@@ -5,7 +5,7 @@ const Product = ({ id, title, image, price }) => {
         <div className="flex flex-col mx-auto text-black bg-white w-[90%] items-center mb-5 p-4 rounded-md">
             <h1 className="font-bold">{title}</h1>
             <div className="mt-5 mb-auto">
-                <img src={image} alt="image" />
+                <img className="w-[200px] h-[200px]" src={image} alt="" />
             </div>
 
             <p className="font-bold text-xl">₹&nbsp;{price}</p>

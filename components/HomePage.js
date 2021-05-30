@@ -1,9 +1,9 @@
 import Product from './Product'
 
-const HomePage = () => {
+const HomePage = ({ results }) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 z-0 mt-[-10%] w-full relative">
-            <Product
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 z-0 mt-[-10%] w-full relative">
+            {/* <Product
                 title="OnePlus Nord 5G (Blue Marble, 12GB RAM, 256GB Storage)"
                 image="https://m.media-amazon.com/images/I/71Lx9l3NivL._AC_UY218_.jpg"
                 price={29999}
@@ -43,7 +43,16 @@ const HomePage = () => {
                 title="PS4 The Last of Us Part II (PS4)"
                 image="https://m.media-amazon.com/images/I/81l+hkZEABL._AC_UL320_.jpg"
                 price={1978}
-            />
+            /> */}
+
+            {results.map((result) => (
+                <Product
+                    id={result.id}
+                    title={result.title}
+                    image={result.image}
+                    price={result.price}
+                />
+            ))}
         </div>
     )
 }
