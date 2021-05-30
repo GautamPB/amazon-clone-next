@@ -9,6 +9,7 @@ const HomePage = ({ results }) => {
                     title={result.title}
                     image={result.image}
                     price={result.price}
+                    description={result.description}
                 />
             ))}
         </div>

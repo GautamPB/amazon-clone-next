@@ -24,8 +24,17 @@ const Navbar = () => {
         <div className="flex bg-[#131921] w-[100%] px-4 items-center flex-col lg:flex-row py-2 justify-between sticky top-0 z-10">
             <div className="lg:flex items-center w-[100%]">
                 <div className="flex">
-                    <div className="cursor-pointer">
+                    <div
+                        className="cursor-pointer flex items-center"
+                        onClick={() => router.push('/')}
+                    >
                         <Image src="/amazon-logo.png" width={150} height={70} />
+                        <Image
+                            src="/flag.png"
+                            width={25}
+                            height={15}
+                            className="rounded-sm"
+                        />
                     </div>
 
                     <div className="flex items-center space-x-4 lg:hidden ml-auto">
@@ -47,11 +56,16 @@ const Navbar = () => {
                             <NavbarItem lineOne="Returns" lineTwo="& Orders" />
                         </div>
 
-                        <div className="flex items-center cursor-pointer">
+                        <div
+                            className="flex cursor-pointer"
+                            onClick={() => router.push('/checkout')}
+                        >
                             <ShoppingCartIcon className="text-white h-10" />
-                            <div className="text-white font-bold flex flex-col justify-center items-center">
-                                <p>0</p>
-                                <p>Cart</p>
+                            <div className="font-bold flex flex-col">
+                                <p className="bg-[#CD9402] text-black relative px-2 rounded-[100%] right-3 -top-2">
+                                    0
+                                </p>
+                                {/* <p>Cart</p> */}
                             </div>
                         </div>
                     </div>
@@ -88,11 +102,16 @@ const Navbar = () => {
                     <NavbarItem lineOne="Returns" lineTwo="& Orders" />
                 </div>
 
-                <div className="flex items-center cursor-pointer">
+                <div
+                    className="flex cursor-pointer"
+                    onClick={() => router.push('/checkout')}
+                >
                     <ShoppingCartIcon className="text-white h-10" />
-                    <div className="text-white font-bold flex flex-col justify-center items-center">
-                        <p>0</p>
-                        <p>Cart</p>
+                    <div className="font-bold flex flex-col">
+                        <p className="bg-[#CD9402] text-black relative px-2 rounded-[100%] right-3 -top-2">
+                            0
+                        </p>
+                        {/* <p>Cart</p> */}
                     </div>
                 </div>
             </div>

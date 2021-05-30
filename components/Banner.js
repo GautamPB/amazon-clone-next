@@ -16,6 +16,10 @@ const Banner = () => {
                 className="w-full lg:w-[80%] mx-auto"
             >
                 <div>
+                    <img src="/banner_picture-1.jpg" alt="" />
+                </div>
+
+                <div>
                     <img src="/banner_picture-2.jpg" alt="" />
                 </div>
 
