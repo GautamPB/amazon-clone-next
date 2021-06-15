@@ -1,8 +1,13 @@
-import { Button } from '@material-ui/core'
+import { useRouter } from 'next/router'
 
 const Product = ({ id, title, image, price, description }) => {
+    const router = useRouter()
+
     return (
-        <div className="flex flex-col mx-auto text-black bg-white w-[90%] items-center mb-5 p-4 rounded-md">
+        <div
+            className="flex flex-col mx-auto text-black bg-white w-[90%] items-center mb-5 p-4 rounded-md cursor-pointer"
+            onClick={() => router.push(`/product/${id}`)}
+        >
             <h1 className="font-bold">{title}</h1>
             <div className="mt-5 mb-auto">
                 <img className="w-[200px] h-[200px]" src={image} alt="" />
