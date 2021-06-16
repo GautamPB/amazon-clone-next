@@ -29,12 +29,12 @@ const Navbar = () => {
                         onClick={() => router.push('/')}
                     >
                         <Image src="/amazon-logo.png" width={150} height={70} />
-                        <Image
+                        {/* <Image
                             src="/flag.png"
                             width={25}
                             height={15}
                             className="rounded-sm"
-                        />
+                        /> */}
                     </div>
 
                     <div className="flex items-center space-x-4 lg:hidden ml-auto">
