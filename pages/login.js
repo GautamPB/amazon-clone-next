@@ -42,7 +42,7 @@ const login = () => {
             <Head>
                 <title>Amazon - Login</title>
             </Head>
-            <div className="flex flex-col w-[60%]">
+            <div className="flex flex-col w-[60%] pb-10">
                 <div className="flex flex-col items-center">
                     <Image
                         src="/amazon-logo-black.png"
