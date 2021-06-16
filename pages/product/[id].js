@@ -38,14 +38,17 @@ const SingleProduct = ({ results, products }) => {
                     </h1>
 
                     <div className="mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-                        {products.map((product) => (
-                            <SuggestedProduct
-                                id={product.id}
-                                title={product.title}
-                                image={product.image}
-                                price={product.price}
-                            />
-                        ))}
+                        {products.map(
+                            (product) =>
+                                product.id != results.id && (
+                                    <SuggestedProduct
+                                        id={product.id}
+                                        title={product.title}
+                                        image={product.image}
+                                        price={product.price}
+                                    />
+                                )
+                        )}
                     </div>
                 </div>
             </div>

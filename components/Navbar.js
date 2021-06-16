@@ -71,16 +71,16 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="flex w-[100%] mx-2.5 lg:mx-5 items-center">
+                <div className="flex w-[100%] mx-2.5 lg:mx-5 items-center rounded-lg">
                     <input
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         type="text"
                         placeholder="Search Amazon"
-                        className="w-[100%]  py-2.5 px-2 rounded-lg outline-none border-none bg-white"
+                        className="w-[100%]  py-2.5 px-2 outline-none border-none bg-white"
                     />
                     <SearchIcon
-                        className="h-12 bg-[#CD9402] p-2.5 rounded-lg cursor-pointer"
+                        className="h-12 bg-[#CD9402] p-2.5 cursor-pointer"
                         onClick={handleSubmitSearch}
                     />
                 </div>
