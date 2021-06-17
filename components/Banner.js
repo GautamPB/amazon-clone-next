@@ -13,7 +13,7 @@ const Banner = () => {
                 infiniteLoop={true}
                 autoFocus={false}
                 autoPlay={true}
-                className="w-full lg:w-[80%] mx-auto"
+                className="w-full xl:w-[80%] mx-auto"
             >
                 <div>
                     <img src="/banner_picture-1.jpg" alt="" />
