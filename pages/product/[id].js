@@ -2,9 +2,25 @@ import Head from 'next/head'
 import Navbar from '../../components/Navbar'
 import Image from 'next/image'
 import SuggestedProduct from '../../components/SuggestedProduct'
-import requests from '../../utils/requests'
+import { useDispatch } from 'react-redux'
+import { addToBasket } from '../../slices/basketSlice'
 
 const SingleProduct = ({ results, products }) => {
+    const dispatch = useDispatch()
+
+    const handleAddToBasket = (e) => {
+        e.preventDefault()
+        const product = {
+            id: results.id,
+            title: results.title,
+            description: results.description,
+            image: results.image,
+            price: results.price,
+        }
+
+        dispatch(addToBasket(product))
+    }
+
     return (
         <div className="flex flex-col items-center justify-center min-h-full">
             <Head>
@@ -25,7 +41,10 @@ const SingleProduct = ({ results, products }) => {
                             {results.description}
                         </p>
                         <p className="text-5xl">${results.price}</p>
-                        <button className="focus:outline-none focus:border-none px-4 py-1 bg-[#F09727] mt-4 rounded-lg">
+                        <button
+                            className="focus:outline-none focus:border-none px-4 py-1 bg-[#F09727] mt-4 rounded-lg"
+                            onClick={handleAddToBasket}
+                        >
                             Add to Cart
                         </button>
                     </div>

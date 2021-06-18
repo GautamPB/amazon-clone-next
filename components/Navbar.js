@@ -6,11 +6,15 @@ import { useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from '../firebase'
 import { useRouter } from 'next/router'
+import { useSelector } from 'react-redux'
+import { selectItems } from '../slices/basketSlice'
 
 const Navbar = () => {
     const [search, setSearch] = useState('')
 
     const [user] = useAuthState(auth)
+
+    const items = useSelector(selectItems)
 
     const router = useRouter()
 
@@ -63,7 +67,7 @@ const Navbar = () => {
                             <ShoppingCartIcon className="text-white h-10" />
                             <div className="font-bold flex flex-col">
                                 <p className="bg-[#CD9402] text-black relative px-2 rounded-[100%] right-3 -top-2">
-                                    0
+                                    {items.length}
                                 </p>
                                 {/* <p>Cart</p> */}
                             </div>
@@ -71,16 +75,16 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="flex w-[100%] mx-2.5 lg:mx-5 items-center rounded-lg">
+                <div className="flex w-[100%] mx-2.5 lg:mx-5 items-center">
                     <input
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         type="text"
                         placeholder="Search Amazon"
-                        className="w-[100%]  py-2.5 px-2 outline-none border-none bg-white"
+                        className="w-[100%]  py-2.5 px-2 outline-none border-none bg-white rounded-lg"
                     />
                     <SearchIcon
-                        className="h-12 bg-[#CD9402] p-2.5 cursor-pointer"
+                        className="h-12 bg-[#CD9402] p-2.5 cursor-pointer rounded-lg"
                         onClick={handleSubmitSearch}
                     />
                 </div>
@@ -109,7 +113,7 @@ const Navbar = () => {
                     <ShoppingCartIcon className="text-white h-10" />
                     <div className="font-bold flex flex-col">
                         <p className="bg-[#CD9402] text-black relative px-2 rounded-[100%] right-3 -top-2">
-                            0
+                            {items.length}
                         </p>
                         {/* <p>Cart</p> */}
                     </div>
