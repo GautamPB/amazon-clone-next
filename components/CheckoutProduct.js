@@ -7,6 +7,7 @@ const CheckoutProduct = ({ id, image, title, description, price }) => {
 
     const addItemToBasket = (e) => {
         e.preventDefault()
+
         const product = {
             id,
             title,

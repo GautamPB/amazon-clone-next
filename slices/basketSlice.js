@@ -24,7 +24,7 @@ export const basketSlice = createSlice({
             } else {
                 //the item does not exist
                 console.warn(
-                    `Cannot remove product with prodcuct id ${action.payload.id}`
+                    `Cannot remove product with product id ${action.payload.id}`
                 )
             }
 
@@ -36,5 +36,7 @@ export const basketSlice = createSlice({
 export const { addToBasket, removeFromBasket } = basketSlice.actions
 
 export const selectItems = (state) => state.basket.items
+export const selectTotal = (state) =>
+    state.basket.items.reduce((total, item) => total + item.price, 0)
 
 export default basketSlice.reducer
